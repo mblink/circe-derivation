@@ -232,7 +232,7 @@ class DerivationMacros(val c: blackbox.Context) extends ScalaVersionCompat {
       ].a
     """
 
-  private[this] def allSubclasses(klass: ClassSymbol): Set[Symbol] = {
+  def allSubclasses(klass: ClassSymbol): Set[Symbol] = {
     def go(syms: List[Symbol]): TailRec[Set[Symbol]] = syms match {
       // Symbol is another sealed trait, recurse on its subclasses
       case sym :: rest if sym.isClass && sym.asClass.isSealed =>
