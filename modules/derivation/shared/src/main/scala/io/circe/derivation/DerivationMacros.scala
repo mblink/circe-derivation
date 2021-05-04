@@ -848,7 +848,7 @@ class DerivationMacros(val c: blackbox.Context) extends ScalaVersionCompat {
           ${repr.decoder(member.tpe).name}.tryDecode(field) match {
             case r @ _root_.scala.Right(_) if !_root_.io.circe.derivation.DerivationMacros.isKeyMissingNone(r) => r
             case l @ _root_.scala.Left(_) if field.succeeded && !field.focus.exists(_.isNull) => l
-            case r @ _ => _root_.scala.Right($defaultValue)
+            case _ => _root_.scala.Right($defaultValue)
           }
         }
         """
