@@ -875,7 +875,7 @@ class DerivationMacros(val c: blackbox.Context) extends ScalaVersionCompat {
             case v @ _root_.cats.data.Validated.Valid(_)
               if !_root_.io.circe.derivation.DerivationMacros.isKeyMissingNoneAccumulating(v) => v
             case i @ _root_.cats.data.Validated.Invalid(_) if field.succeeded && !field.focus.exists(_.isNull) => i
-            case v @ _ => _root_.cats.data.Validated.Valid($defaultValue)
+            case _ => _root_.cats.data.Validated.Valid($defaultValue)
           }
         }
         """
