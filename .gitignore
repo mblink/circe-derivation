@@ -2,6 +2,7 @@
 target/
 .idea/
 .idea_modules/
+.bsp/
 .DS_STORE
 .cache
 .settings
@@ -10,4 +11,3 @@ target/
 tmp/
 .bloop
 .metals
-.bsp

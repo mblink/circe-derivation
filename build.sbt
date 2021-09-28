@@ -3,6 +3,17 @@ import scala.xml.{ Elem, Node => XmlNode, NodeSeq => XmlNodeSeq }
 import scala.xml.transform.{ RewriteRule, RuleTransformer }
 
 ThisBuild / organization := "io.circe"
+ThisBuild / crossScalaVersions := Seq("2.12.15", "2.13.6")
+ThisBuild / githubWorkflowPublishTargetBranches := Nil
+ThisBuild / githubWorkflowBuild := Seq(
+  WorkflowStep.Use(
+    UseRef.Public(
+      "codecov",
+      "codecov-action",
+      "v1"
+    )
+  )
+)
 
 val compilerOptions = Seq(
   "-deprecation",
@@ -16,12 +27,12 @@ val compilerOptions = Seq(
   "-Ywarn-numeric-widen"
 )
 
-val catsVersion = "2.6.0"
-val circeVersion = "0.14.0-M6"
+val catsVersion = "2.6.1"
+val circeVersion = "0.14.1"
 val paradiseVersion = "2.1.1"
-val previousCirceDerivationVersion = "0.12.0-M5"
-val scalaCheckVersion = "1.15.3"
-val scalaJavaTimeVersion = "2.2.1"
+val previousCirceDerivationVersion = "0.13.0-M5"
+val scalaCheckVersion = "1.15.4"
+val scalaJavaTimeVersion = "2.3.0"
 
 def priorTo2_13(scalaVersion: String): Boolean =
   CrossVersion.partialVersion(scalaVersion) match {
@@ -97,7 +108,7 @@ lazy val derivation = crossProject(JSPlatform, JVMPlatform)
       "io.circe" %%% "circe-parser" % circeVersion % Test,
       "io.circe" %%% "circe-testing" % circeVersion % Test,
       "org.scalatestplus" %%% "scalacheck-1-14" % "3.2.2.0" % Test,
-      "org.typelevel" %%% "discipline-scalatest" % "2.1.3" % Test
+      "org.typelevel" %%% "discipline-scalatest" % "2.1.5" % Test
     ),
     ghpagesNoJekyll := true,
     docMappingsApiDir := "api"
@@ -199,7 +210,7 @@ lazy val examplesScrooge = project
       if (priorTo2_13(scalaVersion.value))
         Seq(
           "com.twitter" %% "scrooge-core" % "20.5.0",
-          "org.apache.thrift" % "libthrift" % "0.10.0"
+          "org.apache.thrift" % "libthrift" % "0.15.0"
         )
       else Nil
     ),
