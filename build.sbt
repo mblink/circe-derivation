@@ -3,7 +3,7 @@ import scala.xml.{ Elem, Node => XmlNode, NodeSeq => XmlNodeSeq }
 import scala.xml.transform.{ RewriteRule, RuleTransformer }
 
 ThisBuild / organization := "io.circe"
-ThisBuild / crossScalaVersions := Seq("2.12.15", "2.13.8")
+ThisBuild / crossScalaVersions := Seq("2.12.17", "2.13.10")
 ThisBuild / githubWorkflowPublishTargetBranches := Nil
 ThisBuild / githubWorkflowBuild := Seq(
   WorkflowStep.Use(
@@ -27,11 +27,11 @@ val compilerOptions = Seq(
   "-Ywarn-numeric-widen"
 )
 
-val catsVersion = "2.7.0"
-val circeVersion = "0.14.2"
+val catsVersion = "2.8.0"
+val circeVersion = "0.14.3"
 val paradiseVersion = "2.1.1"
 val previousCirceDerivationVersion = "0.13.0-M5"
-val scalaCheckVersion = "1.15.4"
+val scalaCheckVersion = "1.17.0"
 val scalaJavaTimeVersion = "2.3.0"
 
 def priorTo2_13(scalaVersion: String): Boolean =

@@ -12,7 +12,7 @@ addSbtPlugin("org.scala-js" % "sbt-scalajs" % "1.7.1")
 addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.6")
 addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "1.0.0")
 addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.9.3")
-addSbtPlugin("org.wartremover" % "sbt-wartremover" % "2.4.16")
+addSbtPlugin("org.wartremover" % "sbt-wartremover" % "3.0.6")
 
 resolvers += "bondlink-maven-repo" at "https://raw.githubusercontent.com/mblink/maven-repo/main"
 addSbtPlugin("bondlink" % "sbt-git-publish" % "0.0.5")
